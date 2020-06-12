@@ -3,7 +3,7 @@ import {ADD_EMAIL} from '../contants';
 
 const FORM_STATE = [];
 
-const applyAddEmail = ({state, action}) => [...state, action.newEmail];
+const applyAddEmail = (state, action) => [...state, action.newEmail];
 
 const formReducer = (state=FORM_STATE, action) => {
     switch(action.type) {
@@ -15,7 +15,7 @@ const formReducer = (state=FORM_STATE, action) => {
 }
 
 const rootReducer = combineReducers({
-    formReducer
+    formReducer: formReducer
 });
 
 export default rootReducer;

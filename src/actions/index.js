@@ -1,8 +1,8 @@
-import {ADD_EMAIL} from '../actions';
+import {ADD_EMAIL} from '../contants';
 
 const doAddEmail = email => ({
     type: ADD_EMAIL,
-    email
+    newEmail: email
 });
 
 export {
