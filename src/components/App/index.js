@@ -1,10 +1,14 @@
 import React from 'react';
 import EmailForm from '../EmailForm';
-import {FirstCardsCollection} from '../Card';
+import {FirstCardsCollection, SecondCardsCollection} from '../Card';
 import BoxCollection from '../BoxCollection';
 import firstImage from '../../images/bg-showcase-1.jpg';
 import secondImage from '../../images/bg-showcase-2.jpg';
 import thirdImage from '../../images/bg-showcase-3.jpg';
+import firstPerson from '../../images/testimonials-1.jpg';
+import secondPerson from '../../images/testimonials-2.jpg';
+import thirdPerson from '../../images/testimonials-3.jpg';
+
 
 
 const firstHead = "Build a landing page for your business or project and generate more leads!";
@@ -22,6 +26,24 @@ const firstCards = [
 	},
 	{
 		icon: "check",
+		title: "Easy to Use",
+		info: "Ready to use with your own content, or customize the source files!"
+	}
+];
+
+const secondCards = [
+	{
+		person: firstPerson,
+		title: "Fully Responsive",
+		info: "This theme will look great on any device, no matter the size!"
+	},
+	{
+		person: secondPerson,
+		title: "Bootstrap 4 Ready",
+		info: "Featuring the latest build of the new Bootstrap 4 framework!"
+	},
+	{
+		person: thirdPerson,
 		title: "Easy to Use",
 		info: "Ready to use with your own content, or customize the source files!"
 	}
@@ -57,10 +79,12 @@ function App() {
 	return (
 		<div className="App">
 			<EmailForm title={firstHead} />
-			<FirstCardsCollection firstCards={firstCards} />
+			<FirstCardsCollection cards={firstCards} />
 			<BoxCollection props={firstBox} />
 			<BoxCollection props={secondBox} />
 			<BoxCollection props={thirdBox} />
+			<SecondCardsCollection cards={secondCards} />
+
 
 		</div>
 	);

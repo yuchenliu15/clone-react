@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faLaptop, faBook, faCheck, faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faLaptop, faBook, faCheck } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faLaptop, faBook, faCheck);
 

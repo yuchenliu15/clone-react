@@ -1,10 +1,15 @@
-.infoCardContainer {
+.card {
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: center;
     align-items: center;
     padding: 20px;
+}
+
+.card img {
+    width: 192px;
+    height: 192px;
 }
 
 .cardContainer {
