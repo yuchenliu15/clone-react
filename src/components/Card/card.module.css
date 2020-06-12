@@ -25,7 +25,20 @@
     grid-template-areas: "title title title";
     width: 70%;
     margin: auto;
-    height: 250px;
+    min-height: 250px;
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+@media only screen and (max-width: 1300px) {
+    .cardContainer {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .cardContainer {
+        display: flex;
+        flex-direction: column;
+    }
 }
