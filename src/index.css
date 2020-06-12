@@ -16,3 +16,7 @@ code {
 * {
   box-sizing: border-box;
 }
+
+.svg-inline--fa {
+  color: #0984e3;
+}
