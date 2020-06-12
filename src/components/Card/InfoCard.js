@@ -11,7 +11,7 @@ const InfoCard = ({ props }) => {
     } = props;
 
     return (
-        <div class={styles.container}>
+        <div class={styles.infoCardContainer}>
             <FontAwesomeIcon icon={icon} size="5x" />
             <h3>{title}</h3>
             <p>{info}</p>
