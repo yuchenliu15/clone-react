@@ -4,26 +4,27 @@ import PersonCard from './PersonCard';
 import styles from './card.module.css';
 
 
-const FirstCardsCollection = ({cards}) => {
+const FirstCardsCollection = ({ cards }) => {
 
-	return (
-		<div class={styles.cardContainer}>
-			{cards.map(para => {
-				return <InfoCard props={para} />
-			})}
-		</div>
-	)
+    return (
+        <div className={styles.cardContainer}>
+            {cards.map(para => {
+                return <InfoCard props={para} />
+            })}
+        </div>
+    )
 }
 
-const SecondCardsCollection = ({cards}) => {
+const SecondCardsCollection = ({ cards }) => {
 
-	return (
-		<div class={styles.cardContainer}>
-			{cards.map(para => {
-				return <PersonCard props={para} />
-			})}
-		</div>
-	)
+    return (
+        <div className={styles.cardContainer}>
+            <div className={styles.title}><h2>What people are saying...</h2></div>
+            {cards.map(para => {
+                return <PersonCard props={para} />
+            })}
+        </div>
+    )
 }
 
 export {

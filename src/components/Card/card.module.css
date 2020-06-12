@@ -10,11 +10,19 @@
 .card img {
     width: 192px;
     height: 192px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px grey;
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
 }
 
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    grid-template-areas: "title title title";
     width: 70%;
     margin: auto;
     height: 250px;
