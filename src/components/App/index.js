@@ -2,8 +2,16 @@ import React from 'react';
 import EmailForm from '../EmailForm';
 import InfoCard from '../Card/InfoCard';
 import styles from './App.module.css';
+import BoxCollection from '../BoxCollection';
+import firstImage from '../../images/bg-showcase-1.jpg';
 
 const firstHead = "Build a landing page for your business or project and generate more leads!";
+
+const firstBox = {
+	image: firstImage,
+	title: "Fully Responsive Design",
+	info: "When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!"
+};
 
 function App() {
 
@@ -11,12 +19,13 @@ function App() {
 		<div className="App">
 			<EmailForm title={firstHead} />
 			<FirstCardsCollection />
+			<BoxCollection props={firstBox}/>
 		</div>
 	);
 
 }
 
-const FirstCards =[
+const FirstCards = [
 	{
 		icon: "laptop",
 		title: "Fully Responsive",
