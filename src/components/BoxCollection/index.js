@@ -18,13 +18,20 @@ const BoxCollection = ({ props }) => {
     const {
         image,
         title,
-        info
+        info,
+        inverse
     } = props;
 
+    const imageStyle = { background: `url(${image})` };
+    const direction = {flexDirection: 
+        inverse? "row-reverse": "row",
+    };
+
     return (
-        <div className={styles.container}>
+        <div className={styles.container} style={direction}>
             <TextBox title={title} info={info} />
-            <img className={styles.image} alt="imagsdsade" src={image} />
+            <div className={styles.image} style={imageStyle} >
+            </div>
         </div>
     )
 }
