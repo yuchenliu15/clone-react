@@ -1,0 +1,29 @@
+.container {
+    text-align: center;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas: 
+        ". . ."
+        ". content ."
+        ". . .";
+    background: url("../../images/bg-masthead.jpg");
+}
+
+.content {
+    grid-area: content;
+    
+}
+
+.text {
+    font-size: 2.5em;
+    color: white;
+}
+
+.form button{
+    margin-left: 20px;
+}
+
+.input {
+    width: 400px;
+}
