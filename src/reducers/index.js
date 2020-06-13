@@ -1,5 +1,5 @@
-import {combineReducers} from 'redux';
-import {ADD_EMAIL} from '../contants';
+import { combineReducers } from 'redux';
+import { ADD_EMAIL } from '../contants';
 
 const FORM_STATE = {
     emails: [],
@@ -7,12 +7,13 @@ const FORM_STATE = {
 };
 
 const applyAddEmail = (state, action) => {
-    const re = /^[A-Za-z.]+@[A-Za-z.]*\.[A-Za-z.]*/
-    if(re.test(action.newEmail)) {
+    const re = /^[A-Za-z.]+@[A-Za-z.]*\.[A-Za-z.]*/;
+    
+    if (re.test(action.newEmail)) {
         return ({
             emails: [...state.emails, action.newEmail],
             error: false
-        });  
+        });
     }
     else {
         return ({
@@ -22,8 +23,8 @@ const applyAddEmail = (state, action) => {
     }
 };
 
-const formReducer = (state=FORM_STATE, action) => {
-    switch(action.type) {
+const formReducer = (state = FORM_STATE, action) => {
+    switch (action.type) {
         case ADD_EMAIL: {
             return applyAddEmail(state, action);
         }

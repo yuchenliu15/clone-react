@@ -5,7 +5,7 @@ import { Button, TextField } from '@material-ui/core';
 import { blue } from '@material-ui/core/colors';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import styles from './form.module.css';
-import {getError} from '../../selectors';
+import { getError } from '../../selectors';
 
 const theme = createMuiTheme({
     palette: {

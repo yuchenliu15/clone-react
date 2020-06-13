@@ -9,11 +9,7 @@ import {
 	infoCards, personCards
 } from '../../contants';
 
-
-
 function App() {
-
-
 
 	return (
 		<div className="App">
@@ -23,14 +19,9 @@ function App() {
 			<BoxCollection props={secondBox} />
 			<BoxCollection props={thirdBox} />
 			<PersonWithCardsCollection cards={personCards} />
-
-
 		</div>
 	);
 
 }
-
-
-
 
 export default App;

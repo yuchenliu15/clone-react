@@ -32,39 +32,39 @@ const thirdBox = {
 };
 
 const infoCards = [
-	{
-		icon: "laptop",
-		title: "Fully Responsive",
-		info: "This theme will look great on any device, no matter the size!"
-	},
-	{
-		icon: "book",
-		title: "Bootstrap 4 Ready",
-		info: "Featuring the latest build of the new Bootstrap 4 framework!"
-	},
-	{
-		icon: "check",
-		title: "Easy to Use",
-		info: "Ready to use with your own content, or customize the source files!"
-	}
+    {
+        icon: "laptop",
+        title: "Fully Responsive",
+        info: "This theme will look great on any device, no matter the size!"
+    },
+    {
+        icon: "book",
+        title: "Bootstrap 4 Ready",
+        info: "Featuring the latest build of the new Bootstrap 4 framework!"
+    },
+    {
+        icon: "check",
+        title: "Easy to Use",
+        info: "Ready to use with your own content, or customize the source files!"
+    }
 ];
 
 const personCards = [
-	{
-		person: firstPerson,
-		title: "Fully Responsive",
-		info: "This theme will look great on any device, no matter the size!"
-	},
-	{
-		person: secondPerson,
-		title: "Bootstrap 4 Ready",
-		info: "Featuring the latest build of the new Bootstrap 4 framework!"
-	},
-	{
-		person: thirdPerson,
-		title: "Easy to Use",
-		info: "Ready to use with your own content, or customize the source files!"
-	}
+    {
+        person: firstPerson,
+        title: "Fully Responsive",
+        info: "This theme will look great on any device, no matter the size!"
+    },
+    {
+        person: secondPerson,
+        title: "Bootstrap 4 Ready",
+        info: "Featuring the latest build of the new Bootstrap 4 framework!"
+    },
+    {
+        person: thirdPerson,
+        title: "Easy to Use",
+        info: "Ready to use with your own content, or customize the source files!"
+    }
 ];
 
 export const ADD_EMAIL = "ADD_EMAIL";
