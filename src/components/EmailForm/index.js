@@ -12,17 +12,22 @@ const theme = createMuiTheme({
     },
 });
 
+const useStyles = makeStyles({
+    input: {
+        color: "white"
+    },
+});
 
 const EmailForm = ({ title, onAddEmail }) => {
 
     const [text, setText] = useState(''); //non-critical state
+    const classes = useStyles();
 
     const onChange = (event) => {
         setText(event.target.value);
     }
 
     const onSubmit = (event) => {
-        console.log(text)
         onAddEmail(text);
         event.preventDefault();
     }
@@ -30,11 +35,11 @@ const EmailForm = ({ title, onAddEmail }) => {
     return (
         <div className={styles.container}>
             <div className={styles.content}>
-            <form className={styles.form} onSubmit={onSubmit}>
-                <label><h1 className={styles.text}>{title}</h1></label>
-                <TextField className={styles.input} placeholder="Enter your email..." value={text} onChange={onChange} />
-                <SubmitButton onSubmit={onSubmit} />
-            </form>
+                <form className={styles.form} onSubmit={onSubmit}>
+                    <label><h1 className={styles.text}>{title}</h1></label>
+                    <TextField className={styles.input} placeholder="Enter your email..." value={text} onChange={onChange} inputProps={{className: classes.input}} />
+                    <SubmitButton onSubmit={onSubmit} />
+                </form>
             </div>
 
         </div>
