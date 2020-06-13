@@ -3,31 +3,21 @@ import InfoCard from './InfoCard';
 import PersonCard from './PersonCard';
 import styles from './card.module.css';
 
-
-const FirstCardsCollection = ({ cards }) => {
-
+const withCardsCollection = (Component, title) => ({ cards }) => {
     return (
         <div className={styles.cardContainer}>
-            {cards.map((para, index) => {
-                return <InfoCard key={index} props={para} />
+            {title ? <div className={styles.title}><h2>{title}</h2></div> : null}
+            {cards.map((card, index) => {
+                return <Component key={index} props={card} />
             })}
         </div>
-    )
+    );
 }
 
-const SecondCardsCollection = ({ cards }) => {
-
-    return (
-        <div className={styles.cardContainer}>
-            <div className={styles.title}><h2>What people are saying...</h2></div>
-            {cards.map((para, index) => {
-                return <PersonCard key={index} props={para} />
-            })}
-        </div>
-    )
-}
+const InfoWithCardsCollection = withCardsCollection(InfoCard);
+const PersonWithCardsCollection = withCardsCollection(PersonCard, "What people are saying...");
 
 export {
-    FirstCardsCollection,
-    SecondCardsCollection
+    InfoWithCardsCollection,
+    PersonWithCardsCollection
 };

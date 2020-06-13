@@ -1,6 +1,6 @@
 import React from 'react';
 import EmailForm from '../EmailForm';
-import {FirstCardsCollection, SecondCardsCollection} from '../Card';
+import {InfoWithCardsCollection, PersonWithCardsCollection} from '../Card';
 import BoxCollection from '../BoxCollection';
 import firstImage from '../../images/bg-showcase-1.jpg';
 import secondImage from '../../images/bg-showcase-2.jpg';
@@ -79,11 +79,11 @@ function App() {
 	return (
 		<div className="App">
 			<EmailForm title={firstHead} />
-			<FirstCardsCollection cards={firstCards} />
+			<InfoWithCardsCollection cards={firstCards} />
 			<BoxCollection props={firstBox} />
 			<BoxCollection props={secondBox} />
 			<BoxCollection props={thirdBox} />
-			<SecondCardsCollection cards={secondCards} />
+			<PersonWithCardsCollection cards={secondCards} />
 
 
 		</div>
