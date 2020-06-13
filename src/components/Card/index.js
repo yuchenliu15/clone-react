@@ -8,8 +8,8 @@ const FirstCardsCollection = ({ cards }) => {
 
     return (
         <div className={styles.cardContainer}>
-            {cards.map(para => {
-                return <InfoCard props={para} />
+            {cards.map((para, index) => {
+                return <InfoCard key={index} props={para} />
             })}
         </div>
     )
@@ -20,8 +20,8 @@ const SecondCardsCollection = ({ cards }) => {
     return (
         <div className={styles.cardContainer}>
             <div className={styles.title}><h2>What people are saying...</h2></div>
-            {cards.map(para => {
-                return <PersonCard props={para} />
+            {cards.map((para, index) => {
+                return <PersonCard key={index} props={para} />
             })}
         </div>
     )
@@ -30,4 +30,4 @@ const SecondCardsCollection = ({ cards }) => {
 export {
     FirstCardsCollection,
     SecondCardsCollection
-}
+};

@@ -10,8 +10,8 @@ const PersonCard = ({ props }) => {
     } = props;
 
     return (
-        <div class={styles.card}>
-            <img src={person} />
+        <div className={styles.card}>
+            <img src={person} alt={title} />
             <h3>{title}</h3>
             <p>{info}</p>
         </div>

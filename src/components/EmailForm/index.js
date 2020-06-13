@@ -23,7 +23,7 @@ const EmailForm = ({ title, onAddEmail, error }) => {
 
     const [text, setText] = useState(''); //non-critical state
     const classes = useStyles();
-    console.log('SERRRRR' + error)
+
     const onChange = (event) => {
         setText(event.target.value);
     }
