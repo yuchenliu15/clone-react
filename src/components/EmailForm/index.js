@@ -5,6 +5,7 @@ import { Button, TextField } from '@material-ui/core';
 import { blue } from '@material-ui/core/colors';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import styles from './form.module.css';
+import {getError} from '../../selectors';
 
 const theme = createMuiTheme({
     palette: {
@@ -18,18 +19,19 @@ const useStyles = makeStyles({
     },
 });
 
-const EmailForm = ({ title, onAddEmail }) => {
+const EmailForm = ({ title, onAddEmail, error }) => {
 
     const [text, setText] = useState(''); //non-critical state
     const classes = useStyles();
-
+    console.log('SERRRRR' + error)
     const onChange = (event) => {
         setText(event.target.value);
     }
 
     const onSubmit = (event) => {
-        onAddEmail(text);
         event.preventDefault();
+        onAddEmail(text);
+        setText('');
     }
 
     return (
@@ -37,8 +39,8 @@ const EmailForm = ({ title, onAddEmail }) => {
             <div className={styles.content}>
                 <form className={styles.form} onSubmit={onSubmit}>
                     <label><h1 className={styles.text}>{title}</h1></label>
-                    <TextField className={styles.input} placeholder="Enter your email..." value={text} onChange={onChange} inputProps={{className: classes.input}} />
-                    <SubmitButton onSubmit={onSubmit} />
+                    <TextField className={styles.input} placeholder="Enter your email..." value={text} onChange={onChange} inputProps={{ className: classes.input }} error={error} />
+                    <SubmitButton />
                 </form>
             </div>
 
@@ -46,10 +48,10 @@ const EmailForm = ({ title, onAddEmail }) => {
     )
 }
 
-const SubmitButton = ({ onSubmit }) => {
+const SubmitButton = () => {
     return (
         <ThemeProvider theme={theme}>
-            <Button variant="contained" color="primary" disableElevation type="submit" onSubmit={onSubmit}>
+            <Button variant="contained" color="primary" disableElevation type="submit" >
                 Sign Up!
             </Button>
         </ThemeProvider>
@@ -60,7 +62,11 @@ const mapDispatchToProps = dispatch => ({
     onAddEmail: email => dispatch(doAddEmail(email))
 });
 
+const mapStateToProps = state => ({
+    error: getError(state)
+});
+
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(EmailForm);

@@ -1,9 +1,26 @@
 import {combineReducers} from 'redux';
 import {ADD_EMAIL} from '../contants';
 
-const FORM_STATE = [];
+const FORM_STATE = {
+    emails: [],
+    error: null
+};
 
-const applyAddEmail = (state, action) => [...state, action.newEmail];
+const applyAddEmail = (state, action) => {
+    const re = /^[A-Za-z.]+@[A-Za-z.]*\.[A-Za-z.]*/
+    if(re.test(action.newEmail)) {
+        return ({
+            emails: [...state.emails, action.newEmail],
+            error: false
+        });  
+    }
+    else {
+        return ({
+            emails: state.emails,
+            error: true
+        });
+    }
+};
 
 const formReducer = (state=FORM_STATE, action) => {
     switch(action.type) {
@@ -15,7 +32,7 @@ const formReducer = (state=FORM_STATE, action) => {
 }
 
 const rootReducer = combineReducers({
-    formReducer: formReducer
+    formState: formReducer
 });
 
 export default rootReducer;
