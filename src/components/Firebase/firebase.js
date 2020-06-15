@@ -28,7 +28,6 @@ class Firebase {
 
     addSubscriber(email) {
         const uniqueID = new Date().getMilliseconds();
-        console.log(typeof uniqueID)
         this.db.ref('subscriptions/' + uniqueID).set({
             email
         });

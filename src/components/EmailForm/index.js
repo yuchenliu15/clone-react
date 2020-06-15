@@ -30,7 +30,6 @@ const EmailForm = ({ title, onAddEmail, error }) => {
     }
 
     const onSignUp = firebase => {
-        console.log(firebase)
         return (event) => {
             event.preventDefault();
             firebase.addSubscriber(text);
