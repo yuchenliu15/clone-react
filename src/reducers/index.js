@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { ADD_EMAIL } from '../contants';
 import Firebase from '../components/Firebase';
 
+const firebase = new Firebase();
 const FORM_STATE = {
     emails: [],
     error: null
@@ -9,10 +10,12 @@ const FORM_STATE = {
 
 const applyAddEmail = (state, action) => {
     const re = /^[A-Za-z.]+@[A-Za-z.]*\.[A-Za-z.]*/;
-    
-    if (re.test(action.newEmail)) {
+    const email = action.newEmail;
+
+    if (re.test(email)) {
+        firebase.addSubscriber(email);
         return ({
-            emails: [...state.emails, action.newEmail],
+            emails: [...state.emails, email],
             error: false
         });
     }
