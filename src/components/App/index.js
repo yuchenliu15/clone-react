@@ -2,7 +2,6 @@ import React from 'react';
 import EmailForm from '../EmailForm';
 import {InfoWithCardsCollection, PersonWithCardsCollection} from '../Card';
 import BoxCollection from '../BoxCollection';
-
 import {
 	headTitle,
 	firstBox, secondBox, thirdBox,
