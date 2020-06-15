@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { ADD_EMAIL } from '../contants';
+import Firebase from '../components/Firebase';
 
 const FORM_STATE = {
     emails: [],
