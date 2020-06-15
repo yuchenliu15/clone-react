@@ -68,6 +68,8 @@ const personCards = [
 ];
 
 export const ADD_EMAIL = "ADD_EMAIL";
+export const ADD_EMAIL_ERROR = "ADD_EMAIL_ERROR";
+export const UPLOAD_EMAIL = "UPLOAD_EMAIL";
 export {
     headTitle,
     firstBox,
