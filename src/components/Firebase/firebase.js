@@ -1,4 +1,5 @@
 import app from 'firebase/app';
+import 'firebase/database';
 
 const devConfig = {
     apiKey: process.env.REACT_APP_DEV_API_KEY,
@@ -22,7 +23,17 @@ const config = process.env.NODE_ENV === 'development' ? devConfig : prodConfig;
 class Firebase {
     constructor() {
         app.initializeApp(config);
+        this.db = app.database();
     }
+
+    addSubscriber(email) {
+        const uniqueID = new Date().getMilliseconds();
+        console.log(typeof uniqueID)
+        this.db.ref('subscriptions/' + uniqueID).set({
+            email
+        });
+    }
+
 }
 
 export default Firebase;

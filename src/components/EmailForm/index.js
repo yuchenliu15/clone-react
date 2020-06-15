@@ -6,6 +6,7 @@ import { blue } from '@material-ui/core/colors';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import styles from './form.module.css';
 import { getError } from '../../selectors';
+import { FirebaseContext } from '../Firebase';
 
 const theme = createMuiTheme({
     palette: {
@@ -28,23 +29,31 @@ const EmailForm = ({ title, onAddEmail, error }) => {
         setText(event.target.value);
     }
 
-    const onSubmit = (event) => {
-        event.preventDefault();
-        onAddEmail(text);
-        setText('');
+    const onSignUp = firebase => {
+        console.log(firebase)
+        return (event) => {
+            event.preventDefault();
+            firebase.addSubscriber(text);
+            onAddEmail(text);
+            setText('');
+        }
     }
 
     return (
-        <div className={styles.container}>
-            <div className={styles.content}>
-                <form className={styles.form} onSubmit={onSubmit}>
-                    <label><h1 className={styles.text}>{title}</h1></label>
-                    <TextField className={styles.input} placeholder="Enter your email..." value={text} onChange={onChange} inputProps={{ className: classes.input }} error={error} />
-                    <SubmitButton />
-                </form>
-            </div>
+        <FirebaseContext.Consumer>
+            {(firebase) =>{
+                return <div className={styles.container}>
+                    <div className={styles.content}>
+                        <form className={styles.form} onSubmit={onSignUp(firebase)}>
+                            <label><h1 className={styles.text}>{title}</h1></label>
+                            <TextField className={styles.input} placeholder="Enter your email..." value={text} onChange={onChange} inputProps={{ className: classes.input }} error={error} />
+                            <SubmitButton />
+                        </form>
+                    </div>
+                </div>}
+            }
+        </FirebaseContext.Consumer>
 
-        </div>
     )
 }
 
