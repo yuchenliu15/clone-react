@@ -26,11 +26,11 @@ class Firebase {
         this.db = app.database();
     }
 
-    addSubscriber(email) {
+    addSubscriber(database, email) {
         const uniqueID = new Date().getMilliseconds();
-        this.db.ref('subscriptions/' + uniqueID).set({
+        return database.ref('subscriptions/' + uniqueID).set({
             email
-        });
+        }).then(() => true);
     }
 
 }

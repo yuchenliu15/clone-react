@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_EMAIL, ADD_EMAIL_ERROR } from '../contants';
+import { ADD_EMAIL, ADD_EMAIL_ERROR, STORE_EMAIL_SUCCESS, STORE_EMAIL_ERROR } from '../contants';
 
 const FORM_STATE = {
     emails: [],
@@ -27,6 +27,15 @@ const formReducer = (state = FORM_STATE, action) => {
         }
         case ADD_EMAIL_ERROR: {
             return applyAddEmailError(state, action);
+        }
+        case STORE_EMAIL_SUCCESS: {
+            if(action.result)
+                console.log('SUCESSSSSSSSSSSSSS')
+            return state;
+        }
+        case STORE_EMAIL_ERROR: {
+            console.log('NOOOOOOOOOOOOO')
+            return state;
         }
         default: return state;
     }

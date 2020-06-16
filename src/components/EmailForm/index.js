@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { doAddEmail, doAddEmailError } from '../../actions';
+import { doAddEmail, doAddEmailError, doStoreEmail } from '../../actions';
 import { Button, TextField } from '@material-ui/core';
 import { blue } from '@material-ui/core/colors';
 import { createMuiTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     },
 });
 
-const EmailForm = ({ title, onAddEmail, onAddEmailError, error }) => {
+const EmailForm = ({ title, onAddEmail, onAddEmailError, onStoreEmail, error }) => {
 
     const [text, setText] = useState(''); //non-critical state
     const classes = useStyles();
@@ -32,8 +32,10 @@ const EmailForm = ({ title, onAddEmail, onAddEmailError, error }) => {
         event.preventDefault();
         const re = /^[A-Za-z.]+@[A-Za-z.]*\.[A-Za-z.]*/;
 
-        if (re.test(text))
+        if (re.test(text)) {
             onAddEmail(text);
+            onStoreEmail(text);
+        }
         else
             onAddEmailError();
         setText('');
@@ -66,7 +68,8 @@ const SubmitButton = () => {
 
 const mapDispatchToProps = dispatch => ({
     onAddEmail: email => dispatch(doAddEmail(email)),
-    onAddEmailError: () => dispatch(doAddEmailError())
+    onAddEmailError: () => dispatch(doAddEmailError()),
+    onStoreEmail: email => dispatch(doStoreEmail(email))
 });
 
 const mapStateToProps = state => ({

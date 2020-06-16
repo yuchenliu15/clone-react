@@ -69,7 +69,9 @@ const personCards = [
 
 export const ADD_EMAIL = "ADD_EMAIL";
 export const ADD_EMAIL_ERROR = "ADD_EMAIL_ERROR";
-export const UPLOAD_EMAIL = "UPLOAD_EMAIL";
+export const STORE_EMAIL = "STORE_EMAIL";
+export const STORE_EMAIL_ERROR = "STORE_EMAIL_ERROR";
+export const STORE_EMAIL_SUCCESS = "STORE_EMAIL_SUCCESS";
 export {
     headTitle,
     firstBox,
@@ -77,4 +79,4 @@ export {
     thirdBox,
     infoCards,
     personCards,
-}
+};
