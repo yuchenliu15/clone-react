@@ -30,7 +30,9 @@ class Firebase {
         const uniqueID = new Date().getMilliseconds();
         return database.ref('subscriptions/' + uniqueID).set({
             email
-        }).then(() => true);
+        })
+            .then(() => true)
+            .catch(() => false);
     }
 
 }
