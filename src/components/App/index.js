@@ -17,7 +17,7 @@ function App() {
 			<BoxCollection props={firstBox} />
 			<BoxCollection props={secondBox} />
 			<BoxCollection props={thirdBox} />
-			<PersonWithCardsCollection cards={personCards} />
+			{/* <PersonWithCardsCollection cards={personCards} /> */}
 		</div>
 	);
 

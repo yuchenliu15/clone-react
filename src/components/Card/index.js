@@ -2,15 +2,18 @@ import React, {useEffect, useRef} from 'react';
 import InfoCard from './InfoCard';
 import PersonCard from './PersonCard';
 import styles from './card.module.css';
-import {useSpring} from 'react-spring';
+import {useSpring, animated} from 'react-spring';
 
 const withCardsCollection = (Component, title) => ({ cards }) => {
 
     const ref = useRef();
+    const [props, set] = useSpring(() => ({opacity: 0}));
 
     const handleScroll = () => {
         const posY = ref.current.getBoundingClientRect().top;
-        console.log(posY);
+        const offset = window.pageYOffset - posY;
+        console.log("window: " + window.pageYOffset + "  pos: " + posY)
+        set({opacity: 1 +  offset / 1000})
     }
 
     useEffect(() => {
@@ -21,12 +24,12 @@ const withCardsCollection = (Component, title) => ({ cards }) => {
     });
 
     return (
-        <div className={styles.cardContainer} ref={ref} >
+        <animated.div style={props} className={styles.cardContainer} ref={ref} >
             {title ? <div className={styles.title}><h2>{title}</h2></div> : null}
             {cards.map((card, index) => {
                 return <Component key={index} props={card} />
             })}
-        </div>
+        </animated.div>
     );
 }
 
