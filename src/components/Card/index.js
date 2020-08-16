@@ -12,7 +12,6 @@ const withCardsCollection = (Component, title) => ({ cards }) => {
     const handleScroll = () => {
         const posY = ref.current.getBoundingClientRect().top;
         const offset = window.pageYOffset - posY;
-        console.log("window: " + window.pageYOffset + "  pos: " + posY)
         set({opacity: 1 +  offset / 1000})
     }
 
